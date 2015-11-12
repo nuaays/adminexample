@@ -22,4 +22,20 @@ class ApplicationController < ActionController::Base
   		@current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+
+  def checkPosts
+      if current_user.posts == false 
+        flash[:error] = "No fuiste autorizado para realizar esta acción"
+        redirect_to root_url
+      end
+  end
+  helper_method :checkPosts
+
+  def checkProjects
+      if current_user.projects == false 
+        flash[:error] = "No fuiste autorizado para realizar esta acción"
+        redirect_to root_url
+      end
+  end
+  helper_method :checkProjects
 end

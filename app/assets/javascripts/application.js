@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require script
 //= require jssor
 //= require jssor.slider
 //= require jquery.slicknav

@@ -18,10 +18,10 @@
 			<div class="source">Más Información:<br>
 			<%= link_to @post.shortlink, @post.source, :target => "_blank" %></div>
 
-			<% if current_user   %>
+			<% if current_user and current_user.posts?%>
 
 				<div class="button">
-				<%= link_to "Eliminar Post", post_path(@post), method: :delete, data: {confirm: "¿Borrar definitivamente (no se puede deshacer)?"} %>
+				<%= link_to "Eliminar Post", post_path(@post), method: :delete %>
 				</div>
 
 				<div class="button"><%= link_to "Editar Post", edit_post_path(@post) %>
