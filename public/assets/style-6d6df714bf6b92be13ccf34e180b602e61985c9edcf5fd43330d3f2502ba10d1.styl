@@ -1,0 +1,1378 @@
+@import 'jeet'
+
+blueColor = #0088ce
+greenColor = #2cb34a
+menuHeight = 6em
+headerFont = 'Oswald', sans-serif
+    
+html
+	height 100%
+body 
+	margin 0
+	padding 0
+	font-family 'Roboto', sans-serif
+	height 100%
+	-webkit-appearance: none;
+.fixed
+	width 100%
+	position fixed
+	bottom 0
+
+.spacer
+	height menuHeight
+	width 100%
+
+.slicknav_menu
+	display none
+
+button
+	-webkit-appearance: none;
+input[type=submit]
+	-webkit-appearance: none;
+
+#mmenu
+	display none
+
+header
+	height menuHeight
+	background-color blueColor
+	position fixed
+	top 0
+	width 100%
+	z-index 1
+
+	.logo
+		col(1/5)
+		text-align right
+		margin 0
+		padding 0
+		img
+			width 100px
+			margin menuHeight*0.2
+	.menu
+		col(3/5)
+		shift(1/5)
+		line-height menuHeight
+		text-align center
+		margin 0
+		div
+			span(1/6)
+			font-family headerFont
+			text-transform uppercase
+			a
+				color white
+				text-decoration none
+				font-size 1.2em
+		.loginMessage
+			div 
+				width 100%		
+
+.flash
+	background-color greenColor
+	line-height 1.3em
+	color white
+	font-family headerFont
+	padding-top 5px 
+	padding-bottom 5px
+	text-align right
+	padding-right 50px
+
+.footer
+	background-color rgb(50,50,50)
+	overflow hidden
+	padding-top 1em
+	padding-bottom 1em
+	height 90px
+	.informacion
+		col(1/3)
+		a 
+			text-decoration none
+		p 
+			margin 0
+			color white
+			padding-top 10px 
+			padding-left 30%
+	.rSociales 
+		col(1/3)
+		padding-top 20px
+		text-align center
+		.fb 
+			col(1/3)
+		.tw 
+			col(1/3)
+		.inst 
+			col(1/3)
+			
+	.nuva
+		col(1/3)
+		text-align right
+		div	
+			padding-top 10px
+			padding-right 30%
+
+/*--- INDEX ---*/
+	
+.slider
+	width 640
+	height 480px
+	margin-top 10px
+	overflow hidden
+	.slides
+		display block
+		width 2000px
+		height 480px
+		margin 0
+		padding 0
+	.slide 
+		float left 
+		list-style-type none
+		width 100%
+		height 480px
+	#slide1
+		background url('/assets/slide1.jpg') no-repeat center center
+	#slide2
+		background url('/assets/slide2.jpg') no-repeat center center
+	#slide3
+		background url('/assets/slide3.jpg') no-repeat center center
+	#slide4
+		background url('/assets/slide4.jpg') no-repeat center center
+	#slide5
+		background url('/assets/slide5.jpg') no-repeat center center
+.quienes
+	width 100%
+	background-color white
+	margin 0
+	padding-top 8em
+	padding-bottom 8em
+	overflow hidden
+	.container
+		width 70%
+		margin 0 auto
+		h1
+			col(3/3)
+			font-family headerFont
+			color blueColor
+			text-align center
+			text-transform uppercase
+		p 
+			col(2/3)
+			font-size 1.1em
+		.logo
+			col(1/3)
+			margin 0
+			padding 0
+			img
+				width 100%
+				padding 0 
+				margin 0
+.banner1
+	height 40%
+	margin 0 
+	padding 0
+	background url('/assets/banner1.png') no-repeat center center
+	background-size 100% 
+	overflow hidden
+	.container
+		width 70%
+		height 100%
+		margin 0 auto
+		display table
+		div
+			display table-cell
+			vertical-align middle
+			height 100%
+		p
+			color white
+			text-align center
+			font-size 1.8em
+			font-family headerFont 
+			padding 0 20px
+.miVi 
+	overflow hidden
+	margin 0
+	padding 0
+	text-align center
+	height 700px
+	.container
+		width 100%
+		height 500px
+		margin 0 auto
+	.mision
+		span(1/2)
+		padding-top 4em
+		padding-bottom 4em
+		margin 0
+		height inherit
+		color white
+		background-color greenColor
+		h2 
+			font-family headerFont
+		p 
+			text-align justify
+			font-size 1.1em
+			width 70%
+			margin 0 auto
+			.imgIcon
+				col(1/1)
+				text-align center
+				img 
+					width 45px
+	.vision
+		span(1/2)
+		padding-top 4em
+		padding-bottom 4em
+		margin 0
+		height inherit
+		color white
+		background-color blueColor
+		h2 
+			font-family headerFont
+		p 
+			text-align justify
+			font-size 1.1em
+			width 70%
+			margin 0 auto
+			.imgIcon
+				col(1/1)
+				text-align center
+				img 
+					width 45px
+.hacemos
+	margin 0 
+	padding 0
+	overflow hidden
+	padding-top 5em
+	padding-bottom 5em
+	.container
+		width 70%
+		height 100%
+		margin 0 auto
+		h1
+			font-family headerFont
+			color greenColor
+			col(1/1)
+			text-align center
+		.oscs
+			col(1/2)
+			.imagen
+				text-align center
+				img 
+					width 80%
+			.text 
+				color rgb(18,18,18)
+				font-size 1.1em
+				padding 0 20px
+				ul 
+					list-style-image url('/assets/listIconBlue.png')
+		.empresas
+			col(1/2)
+			.imagen
+				text-align center
+				img 
+					width 80%
+			.text 
+				color rgb(18,18,18)
+				font-size 1.1em
+				padding 0 20px
+				ul 
+					list-style-image url('/assets/listIconGreen.png')
+.redesSociales
+	background-color blueColor
+	overflow hidden
+	padding-top 2em
+	padding-bottom 3em
+	.container
+		h1
+			color white
+			text-align center
+			font-family headerFont
+		width 70%
+		height 100%
+		margin 0 auto
+		overflow hidden
+		.facebook
+			col(1/2)
+			text-align center
+		.twitter
+			col(1/2)
+			text-align center
+
+
+/*--- CONTACTO ---*/
+
+.contactHeader
+	overflow hidden
+	margin-top 2em
+	.container 
+		width 70%
+		height 150px
+		margin 0 auto
+		background url('/assets/contacto.png') no-repeat center center
+		h1
+			font-size 2.3em
+			font-family headerFont
+			color white
+			text-align center
+			line-height 150px
+.contactContent
+	overflow hidden
+	padding-top 3em
+	padding-bottom 3em
+	.container
+		width 70%
+		margin 0 auto
+		overflow hidden
+		.formInfo
+			span(3/5)
+			padding-left 5%
+			padding-right 5%
+			.formHeader
+				h1 
+					img 
+						margin-right 15px
+					font-family headerFont
+					color blueColor
+			p 
+				b
+					color blueColor
+			.form 
+				form
+					col(5/5)			
+					input
+						col(1/1)
+						border none
+						margin-top 10px
+						line-height 2em
+						font-size 1.2em
+						border 3px blueColor solid
+					textarea
+						col(1/1)
+						padding 0
+						margin-top 10px
+						font-size 1.2em
+						font-family ProximaNovaRegular
+						border 3px blueColor solid
+						resize none
+					button
+						margin-top 10px
+						padding 0
+						line-height 2em
+						col(1/1)
+						background-color greenColor
+						border 3px greenColor solid
+						text-align center
+						color white
+						font-weight bold
+						font-size 1.2em
+						transition all 700ms ease
+						cursor pointer
+						&:hover
+							color greenColor
+							background-color white
+							border 3px greenColor solid
+		.contactInfo
+			span(1/5)
+			margin 0 auto
+			padding-left 40px
+			.contactLogo
+				width 100%
+				margin 0 auto
+				img 
+					width 110%
+			.contactAddress
+				color greenColor
+				font-size 1.1em
+/*---PROJECTS INDEX---*/
+.projectsHeader
+	overflow hidden
+	margin-top 2em
+	.container 
+		width 70%
+		height 150px
+		margin 0 auto
+		background url('/assets/proyectos.png') no-repeat center center
+		h1
+			font-size 2.3em
+			font-family headerFont
+			color white
+			text-align center
+			line-height 150px
+.projectsIndex
+	padding-bottom 3em
+	.container
+		width 1000px
+		margin 0 auto
+		.desc
+			text-align center
+			width 80%
+			margin 0 auto
+			h3
+				color greenColor
+		.button
+			width 200px
+			background-color white
+			font-family headerFont
+			font-size 1.2em
+			cursor pointer
+			color white
+			border blueColor solid
+			transition all 700ms ease
+			text-align center
+			a
+				color blueColor
+				text-decoration none
+			&:hover
+				background-color blueColor
+				color white
+				a
+					text-decoration none
+					color white
+					width 200px
+		.projects 
+			width 90%
+			margin 0 auto
+			overflow hidden
+			.project
+				col(1/2, cycle: 2)
+				margin-top 20px
+				padding-bottom 10px
+				background-color blueColor
+				p
+					text-align left
+					padding 0 15px 0 15px
+					a 
+						font-family headerFont
+						text-decoration none
+						color white
+						font-size 1.1em
+						text-transform uppercase
+				.shortDesc
+					height 2.5em
+					color white
+					overflow hidden
+				.seeMore
+					float right
+					width 30%
+					margin-right 10px
+					background-color blueColor
+					font-family headerFont
+					font-size 1.2em
+					cursor pointer
+					color white
+					border white solid
+					transition all 700ms ease
+					text-align center
+					a
+						color white
+						text-decoration none
+					&:hover
+						background-color greenColor
+						color white
+		.createProject
+			overflow hidden
+			background-color blueColor
+			width 80%
+			margin 0 auto
+			margin-top 3em
+			padding 1px 15px 15px 15px
+			h2
+				color white
+				text-align center
+				font-family headerFont
+				text-transform uppercase
+			input[type=text]
+				col(1/3)
+				line-height 1.8em
+				background-color white
+				padding-left 5px
+				margin-left 15px
+				
+			.stepGrp
+				margin 0 auto
+				text-align center
+			.steps
+				width 32%
+				display inline-block
+				vertical-align top
+				text-align center
+				margin-right 5px
+				color white
+				h1
+					width 10%
+					display inline-block
+				p 
+					width 80%
+					display inline-block
+				textarea
+					margin-left 8px
+					width 90%
+					display inline-block
+					font-family 'Roboto' sans-serif
+					background-color white
+			button
+				float right
+				width 30%
+				margin-right 10px
+				margin-top 1.5em
+				background-color blueColor
+				font-family headerFont
+				font-size 1.2em
+				cursor pointer
+				color white
+				border white solid
+				transition all 700ms ease
+				text-align center
+				a
+					color white
+					text-decoration none
+				&:hover
+					background-color greenColor
+					color white
+/*--- NEW PROJECT ---*/
+.newProject
+	padding-top 2em
+	padding-bottom 3em
+	.container
+		width 70%
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+/*--- PROJECT SHOW---*/
+.showProject
+	padding-top 2em
+	padding-bottom 2em
+	.container
+		width 1024px
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+		.leftInfo
+			width 50%
+			vertical-align top
+			display inline-block
+			text-align left
+			.projectDesc
+				padding 10px 
+				text-align justify
+			.infoH
+				color blueColor
+				font-size 1.1em
+				margin-bottom 15px 
+				font-weight bold
+			.info 
+				color greenColor
+				font-weight bold
+				margin-top 0
+				margin-bottom 0
+			button
+				float right
+				width 30%
+				margin-right 10px
+				margin-top 1.5em
+				background-color blueColor
+				font-family headerFont
+				font-size 1.2em
+				cursor pointer
+				color white
+				border white solid
+				transition all 700ms ease
+				text-align center
+				a
+					color white
+					text-decoration none
+				&:hover
+					background-color greenColor
+					color white
+		.rightInfo
+			width 49%
+			display inline-block
+			.projectImage
+				img
+					width 100%
+/*--- PROJECT EDIT ---*/
+.projectEdit
+	padding-top 2em
+	padding-bottom 2em
+	.container
+		width 70%
+		margin 0 auto
+		h2
+			text-align center
+			color greenColor
+/*--- PROJECT FORM---*/
+.projectForm
+	.projectFormContainer
+		width 310px
+		margin 0 auto
+	form 
+		margin 0 auto
+		label
+			text-align left
+		div
+			margin-top 15px
+		input[type=text]
+			width 300px
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+			rows 10
+		textarea
+			width 300px
+			height 8.4em
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+		.button
+			width 300px
+			margin 0 auto
+			margin-top 20px 
+			border blueColor solid
+			background-color blueColor
+			input[type=submit]
+				transition all 700ms ease
+				vertical-align middle
+				font-family headerFont
+				background-color blueColor
+				color white
+				font-size 1.1em
+				margin 0 auto
+				cursor pointer
+				width 300px
+				border none
+				&:hover
+					background-color greenColor
+/*--- NEWS INDEX ---*/
+
+.newsHeader
+	overflow hidden
+	margin-top 2em
+	.container 
+		width 70%
+		height 150px
+		margin 0 auto
+		background url('/assets/noticias.png') no-repeat center center
+		h1
+			font-size 2.3em
+			font-family headerFont
+			color white
+			text-align center
+			line-height 150px				
+.newsIndex
+	.container
+		width 1000px
+		margin 0 auto
+		overflow hidden
+		padding-top 2em
+		padding-bottom 2em
+		.newsSection
+			col(3/5)
+			.button
+				width 30%
+				margin-right 10px
+				margin-top 1.5em
+				background-color greenColor
+				font-family headerFont
+				font-size 1.2em
+				cursor pointer
+				color white
+				border greenColor solid
+				transition all 700ms ease
+				text-align center
+				a
+					color white
+					text-decoration none
+				&:hover
+					background-color white
+					a 
+						color greenColor
+			.news 
+				overflow hidden
+				padding 10px
+				.new
+					overflow hidden
+					width 100%
+					h2
+						font-family headerFont
+						margin-bottom 5px
+						a
+							text-decoration none
+							color greenColor
+					p 
+						margin-top 0
+						height 2.5em
+						overflow hidden
+					.newsButton
+						float right
+						width 30%
+						margin-right 10px
+						background-color blueColor
+						font-family headerFont
+						font-size 1.2em
+						cursor pointer
+						color white
+						border white solid
+						transition all 700ms ease
+						text-align center
+						a
+							color white
+							text-decoration none
+						&:hover
+							background-color greenColor
+							color white
+		.socialmSection
+			col(2/5)
+			background-color blueColor
+			border-radius 10px
+			padding-top 2em
+			padding-bottom 2em
+			text-align center
+			.facebook
+				border-radius 5px 
+			.twitter
+				border-radius 5px
+				margin-top 1em
+/*--- NEW NEWS ---*/
+.newsNew
+	padding-top 2em
+	padding-bottom 3em
+	.container
+		width 70%
+		margin 0 auto
+		h1
+			color greenColor
+			font-family headerFont
+			text-align center
+/*--- NEWS SHOW ---*/
+.showNews
+	padding-top 2em
+	padding-bottom 2em
+	.container
+		width 70%
+		margin 0 auto
+		h1
+			color greenColor
+			text-align center
+			font-family headerFont
+		.leftSection
+			display inline-block
+			width 49%
+			text-align center
+			.postImage
+				margin 0 auto
+				img 
+					width 100%
+			.logo 
+				margin 0 auto
+				padding-bottom 2em
+				img
+					width 50%
+					min-width 165px
+		.rightSection
+			display inline-block
+			width 50%
+			vertical-align top
+			.tweet
+				vertical-align top
+				display inline-block
+				width 49%
+				text-align left
+			.fb-share-button
+				vertical-align top
+				display inline-block
+				width 49%
+				text-align right
+			.text 
+				text-align justify
+				padding 10px
+			.source
+				padding-top 2em
+				padding-bottom 2em
+				color greenColor
+				text-align right
+				a 
+					color blueColor
+					font-size 1.2em
+					font-weight bold
+					text-decoration none 
+			.button 
+				float right
+				width 30%
+				margin-right 10px
+				margin-top 1.5em
+				background-color blueColor
+				font-family headerFont
+				font-size 1.2em
+				cursor pointer
+				color white
+				border white solid
+				transition all 700ms ease
+				text-align center
+				a
+					color white
+					text-decoration none
+				&:hover
+					background-color greenColor
+					color white
+/*--- NEWS EDIT ---*/
+.editNews
+	padding-top 2em
+	padding-bottom 2em
+	.container
+		width 70%
+		margin 0 auto
+		h2
+			text-align center
+			color greenColor
+			font-family headerFont
+/*--- NEWS FORM ---*/
+.newsForm
+	.newsContainer
+		width 310px
+		margin 0 auto
+	form 
+		margin 0 auto
+		label
+			text-align left
+		div
+			margin-top 15px
+		input[type=text]
+			width 300px
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+			rows 10
+		textarea
+			width 300px
+			height 8.4em
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+		.button
+			width 300px
+			margin 0 auto
+			margin-top 20px 
+			border blueColor solid
+			background-color blueColor
+			input[type=submit]
+				transition all 700ms ease
+				vertical-align middle
+				font-family headerFont
+				background-color blueColor
+				color white
+				font-size 1.1em
+				margin 0 auto
+				cursor pointer
+				width 300px
+				border none
+				&:hover
+					background-color greenColor
+/*--- LOGIN ---*/
+
+.login 
+	padding-top 4em;
+	padding-bottom 4em;
+	.container
+		width 70%
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+		form 
+			text-align center
+			font-family 'Roboto' sans-serif
+			input
+				margin-top 20px
+				font-size 1.2em
+				width 250px
+				line-height 2em
+				padding 0
+				border blueColor solid
+				border-radius 5px
+			input[type=text]
+				margin-left 3px
+			input[type=submit]
+				background-color greenColor
+				font-family headerFont
+				font-size 1.2em
+				cursor pointer
+				color white
+				border greenColor solid
+				transition all 700ms ease
+				&:hover
+					background-color white
+					color greenColor
+			
+/*--- ADMIN PANEL ---*/
+
+.adminIndex
+	padding-top 3em
+	padding-bottom 3em
+	.container
+		width 70%
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+		.button
+			width 200px
+			margin 0 auto
+			background-color white
+			font-family headerFont
+			font-size 1.2em
+			cursor pointer
+			color white
+			border blueColor solid
+			transition all 700ms ease
+			a
+				color blueColor
+				text-decoration none
+			&:hover
+				background-color blueColor
+				color white
+				a
+					text-decoration none
+					color white
+					width 200px
+/*---USER LIST---*/
+.userList
+	padding-top 3em
+	padding-bottom 3em
+	.container
+		width 70%
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+		h3
+			font-weight lighter
+		#users 
+			div
+				width 70%
+				margin 0 auto
+				padding 5px
+				text-align left
+				a 
+					font-size 1.1em
+					text-decoration none
+					color black
+					&:hover
+						color blueColor
+		.button
+			width 200px
+			margin 0 auto
+			margin-top 20px 
+			background-color white
+			font-family headerFont
+			font-size 1.1em
+			cursor pointer
+			color white
+			border blueColor solid
+			transition all 700ms ease
+			a
+				color blueColor
+				text-decoration none
+				font-size 1.1em
+			&:hover
+				background-color blueColor
+				color white
+				a
+					text-decoration none
+					color white
+					width 200px
+/*---SHOW USER---*/
+.showUser
+	padding-top 1em
+	padding-bottom 1em
+	.container 
+		width 70%
+		margin 0 auto
+		text-align center
+		h1
+			color greenColor
+			font-family headerFont
+		p 
+			font-size 1.1em
+		div
+			font-size 1.2em
+			width 250px
+			display inline-block
+			margin 0 auto 
+			background-color white
+			font-family headerFont
+			cursor pointer
+			color white
+			border blueColor solid
+			transition all 700ms ease
+			a
+				color blueColor
+				text-decoration none
+			&:hover
+				background-color blueColor
+				color white
+				a
+					text-decoration none
+					color white
+					width 200px
+/*---NEW USER---*/
+.newUser
+	padding-top 1em
+	.container
+		width 70%
+		margin 0 auto
+		h1
+			color greenColor
+			font-family headerFont
+			text-align center
+/*---EDIT USER---*/
+.editUser
+	padding-top 1em
+	padding-bottom 2em
+	.container
+		width 70%
+		margin 0 auto
+		h1
+			color greenColor
+			font-family headerFont
+			text-align center
+/*---ADMIN FORM---*/
+.formAdmin
+	form 
+		margin 0 auto
+		width 500px
+		div
+			margin-top 15px
+		input[type=text]
+			width 250px
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+		input[type=password]
+			width 250px
+			line-height 1.8em
+			padding-left 5px
+			border blueColor 3px solid
+			border-radius 5px
+		.button
+			width 250px
+			margin 0 auto
+			margin-top 20px 
+			border blueColor solid
+			background-color blueColor
+			input[type=submit]
+				transition all 700ms ease
+				vertical-align middle
+				font-family headerFont
+				background-color blueColor
+				color white
+				font-size 1.1em
+				margin 0 auto
+				cursor pointer
+				width 250px
+				border none
+				&:hover
+					background-color white
+					color blueColor
+/*---GO BACK BUTTON---*/
+.goBack
+	width 300px
+	margin 0 auto
+	text-align center
+	margin-top 30px
+	margin-bottom 8em
+	.icon 
+		width 7%
+		display inline-block
+		padding-top 4px
+		img 
+			width 100%
+	.text
+		font-family headerFont
+		font-size 1.2em
+		display inline-block
+		vertical-align top
+		a 
+			text-decoration none
+			color blueColor
+		
+/*---MEDIA QUERIES---*/
++tablet()
+	.spacer 
+		height 0px
+	#mmenu
+		display none
+
+	.slicknav_menu
+		display block
+	header
+		display none
+	.quienes
+		padding-top 3em
+		padding-bottom 3em
+		.container
+			h1 
+				font-size 1.5em
+	.banner1
+		.container
+			p 
+				font-size 1.4em
+	.miVi
+		.mision
+			padding-top 0.5em
+			padding-bottom 2em
+		.vision
+			padding-top 0.5em
+			padding-bottom 2em
+	.hacemos
+		padding-top 2em
+		padding-bottom 2em
+	
+	/*--- PROJECT SHOW ---*/
+	.showProject
+		.container
+			width 90%
+	
+	/*--- NEWS INDEX ---*/
+	.newsIndex
+		.container
+			width 90%
+
+
+
++below(415px) 
+	.spacer
+		height 0px
+	.fixed
+		position relative
+		bottom auto
+	#mmenu
+		display none
+
+	.slicknav_menu
+		display block
+	
+	header
+		display none	
+	.quienes
+		padding-top 2em
+		padding-bottom 2em
+		text-align justify
+		.container
+			width 85%
+			h1 
+				font-size 1.6em
+				margin-bottom 5px
+			p 
+				col(1/1)
+			.logo 
+				col(1/1)
+	.banner1
+		.container
+			width 100%
+			background url('/assets/banner1mv.jpeg') no-repeat center center
+			p 
+				font-size 1em
+	.miVi
+		height auto
+		.mision
+			col(1/1)
+			height auto
+			padding-top 1em
+			padding-bottom 2em
+			font-size 1em
+		.vision
+			col(1/1)
+			height auto
+			padding-top 1em
+			padding-bottom 2em
+			font-size 1em
+	.hacemos
+		padding-top 1em
+		padding-bottom 1em
+		.container
+			width 85%
+			h1
+				font-size 1.6em
+			.oscs
+				col(1/1)
+			.empresas
+				col(1/1)
+	.redesSociales
+		.container
+			width 85%
+			text-align center
+			h1
+				font-size 1.3em
+			.facebook
+				col(1/1)
+			.twitter
+				col(1/1)
+				margin-top 2em
+	.footer
+		height auto
+		text-align center
+		.informacion
+			col(1/1)
+			p 
+				margin 0
+				padding 0
+				color white
+		.rSociales
+			col(1/1)
+			padding-top 1em
+			padding-bottom 1em
+		.nuva
+			col(1/1)
+			text-align center
+			div	
+				padding-right 0
+				img
+					width 20%
+	.contactHeader
+		margin-top 1em
+		.container 
+			width 85%
+			height 100px
+			h1
+				line-height 100px
+	.contactContent
+		padding-top 2em
+		padding-bottom 2em
+		.container
+			width 95%
+			.formInfo
+				span(5/5)
+				padding-left 3%
+				padding-right 3%
+				.formHeader
+					h1
+						font-size 1.5em 
+						img 
+							width 12%
+							margin-right 5px
+				p 
+					col(19/20)
+				.form 
+					margin 0 auto
+					form
+						col(14/15)
+						input[type=text]
+							col(19/20)
+							margin-right 0
+						textarea
+							col(1/1)
+							margin-right 0
+				
+			.contactInfo
+				margin-top 15px
+				.contactLogo
+					width 80%
+					margin 0 auto
+					img 
+						width 70%
+				span(5/5)
+				padding-left 0px
+				padding-top 10px
+				text-align center
+	/*--- PROJECT INDEX ---*/
+	.projectsHeader
+		margin-top 1em
+		.container 
+			width 85%
+			height 100px
+			font-size 0.7em
+			h1
+				line-height 100px
+	.projectsIndex
+		.container
+			width 95%
+			.desc
+				width 100%
+			.button
+				width 50%
+				margin 0 auto
+			.projects
+				width 95%
+				.project 
+					.seeMore
+						width 80%
+						margin 0 auto
+						float none
+			.createProject
+				width 90%
+				input[type=text]
+					col(1/1)
+					margin-left -4px
+					margin-bottom 10px
+				.stepGrp
+					padding-left 0
+				.steps
+					width 90%
+	/*--- PROJECT SHOW ---*/
+	.showProject
+		.container
+			width 90%
+			.leftInfo
+				width 100%
+				.projectDesc
+					padding 0
+				button
+					width 50%
+					margin-top 0.5em
+			.rightInfo
+				width 100%
+				margin-top 1em
+	/*--- NEWS INDEX ---*/
+	.newsHeader
+		margin-top 1em
+		.container 
+			width 85%
+			height 100px
+			h1
+				line-height 100px
+	.newsIndex
+		.container
+			width 90%
+			.newsSection
+				col(1/1)
+				.news 
+					.new
+						h2
+							margin-bottom 0px
+						.newsButton
+							float none
+							width 90%
+							margin 0 auto
+							a
+								color white
+								text-decoration none
+							&:hover
+								background-color greenColor
+								color white
+			.socialmSection
+				display none
+				col(0/1)
+	/*--- NEWS SHOW ---*/
+	.showNews
+		.container 
+			width 90%
+			.leftSection
+				width 100%
+			.rightSection
+				width 100%
+				padding-top 2em
+	/*--- LOGIN ---*/
+	.login
+		.container
+			width 95%

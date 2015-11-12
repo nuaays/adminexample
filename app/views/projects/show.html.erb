@@ -1,0 +1,65 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="showProject">
+	<div class="container">
+		<h1><%= @project.name %></h1>
+		<div class="leftInfo">
+			<div>
+				<p class="projectDesc"><%= @project.issue %></p>
+				<p class="infoH">Sector:</p>
+				<p class="info"><%= @project.sector %></p>
+
+				<p class="infoH">Contacto:</p>
+				<p class="info"><%= @project.phone %></p>
+
+				<p class="info"><%= @project.email %></p>
+				<br>
+				<p class="infoLink"><%= link_to "Ver Álbum de Facebook", @project.album %></p>
+			</div>
+			<div>
+				<% if current_user  %>
+					<button><%= link_to "Editar Proyecto", edit_project_path(@project) %></button>
+					<button><%= link_to "Borrar Proyecto", project_path(@project), method: :delete, data: {confirm: "¿Borrar definitivamente (no se puede deshacer)?"} %></button>
+				<% end %>
+			</div>
+		</div>
+		<div class="rightInfo">
+			<div class="projectImage"><%= image_tag @project.image %></div>
+			<div class="logo"><%= image_tag "logo.png" %></div>
+
+		</div>
+	</div>
+
+	<div class="goBack">
+		<div class="icon"><%= image_tag "backIcon.png" %></div>
+		<div class="text"><%= link_to "REGRESAR", projects_path %></div>
+	</div>
+	<div class="push"></div>
+</div>
+
+<div class="footer">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>
+

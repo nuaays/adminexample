@@ -1,0 +1,82 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+
+<div class="newsHeader">
+	<div class="container">
+		<h1>NOTICIAS</h1>
+	</div>
+</div>
+
+<div class="newsIndex">
+	<div class="container">
+		<div class="newsSection">
+			<div class="button">
+				<% if current_user and current_user.posts?%>
+					<%= link_to 'Crear Noticia', new_post_path %>
+				<% end %>
+			</div>
+			<div class="news">
+				<% @posts.each do |post| %>
+					<div class="new">
+						<h2><%= link_to post.name, post %></h2>
+						<p><%= post.news %></p>
+						<div class="newsButton">
+							<%= link_to 'Leer más...', post %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="socialmSection">
+			<div class="facebook">
+				<div class="fb-page" data-href="https://www.facebook.com/ChatSocialAc" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ChatSocialAc"><a href="https://www.facebook.com/ChatSocialAc">Chat Social, A.C.</a></blockquote></div></div>
+			</div>
+
+			<div class="twitter">
+				<a class="twitter-timeline" 
+				href="https://twitter.com/CHATSOCIAL_AC" 
+				data-widget-id="608695645487022083"
+				width = "300"
+				height = "300">Tweets por @CHATSOCIAL_AC.</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+	(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=181369881949810";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+ </script>
+

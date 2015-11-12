@@ -1,0 +1,42 @@
+<div class="formAdmin">
+<%= form_for [:admin, @user] do |f| %>
+	<% if @user.errors.any?  %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@user.errors.count, "error") %></h2>
+			<ul>
+				<% @user.errors.full_messages.each do |msg| %>
+
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+
+		</div>
+	<% end %>
+
+	<div>
+    <%= f.label :name, "Nombre" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <p>Si es super-administrador puede crear otros usuarios y asignarlos a áreas del sitio.</p>
+  </div>
+
+  <div><%= f.check_box :admin %> ¿Es Super-administrador?</div>
+  <div><%= f.check_box :posts %> ¿Edita y crea Posts?</div>
+  <div><%= f.check_box :projects %> ¿Edita y crea Proyectos?</div>
+  <div>
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+
+	<div class="button"><%= f.submit(@user.new_record? ? "Crear Usuario" : "Modificar Usuario") %></div> 
+<% end %>
+</div>

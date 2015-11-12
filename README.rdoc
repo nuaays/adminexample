@@ -1,0 +1,93 @@
+== README
+
+Description
+
+	Chat Social is a web application being developed by NUVA. The objective of the application is to help new civil 		associations to settle and to get better funding. 
+	Soon available at http://chatsocial.mx
+
+Ruby version 
+
+	2.0.0 
+
+System dependencies
+
+	Check Gemfile
+
+Configuration
+
+	The application can create CRUD for Posts and Project.
+	The administrator can create other users.
+	All users can create news and projects.
+	
+	The application has the following sections:
+		Inicio: in this section we have the general information of the project.
+		Proyectos: here you can consult the projects that the users checkout.
+		Blog: here you can consult the news that the users checkout.
+		Contacto: here you can send a message to the administrators.
+
+Database creation
+
+.
+
+Table “users”	
+
+boolean		“admin”	
+
+string		“email”	
+
+string 		“name”	
+
+encrypted 	“password”	
+
+encrypted 	“password_confirmation”	
+
+.
+
+Table “posts”	
+
+string	“name”
+
+string	“image”
+
+text	“news”
+
+string	“source”
+
+.
+
+Table “project”	
+
+string	“name”
+
+string	“email”
+
+text	“issue”
+
+string	“sector”
+
+text	“input”
+
+.
+
+Database initialization
+
+	bin/rake db:migrate
+
+How to run the test suite
+
+	First we need to migrate de database for the test:
+
+		bin/rake db:migrate RAILS_ENV=test
+
+	Now we can run the test with the next command:
+
+		For Linux/Unix 
+
+			bin/rspec
+
+		For Windows 
+
+			ruby bin/rspec
+
+
+<tt>rake doc:app</tt>.

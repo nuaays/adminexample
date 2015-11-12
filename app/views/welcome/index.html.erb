@@ -1,0 +1,343 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jssor', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jssor.slider', 'data-turbolinks-track' => true %>
+<script>
+        jQuery(document).ready(function ($) {
+
+            var _CaptionTransitions = [];
+            _CaptionTransitions["L"] = { $Duration: 900, x: 0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["R"] = { $Duration: 900, x: -0.6, $Easing: { $Left: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["T"] = { $Duration: 900, y: 0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["B"] = { $Duration: 900, y: -0.6, $Easing: { $Top: $JssorEasing$.$EaseInOutSine }, $Opacity: 2 };
+            _CaptionTransitions["ZMF|10"] = { $Duration: 900, $Zoom: 11, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear }, $Opacity: 2 };
+            _CaptionTransitions["RTT|10"] = { $Duration: 900, $Zoom: 11, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseOutQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInExpo }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+            _CaptionTransitions["RTT|2"] = { $Duration: 900, $Zoom: 3, $Rotate: 1, $Easing: { $Zoom: $JssorEasing$.$EaseInQuad, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInQuad }, $Opacity: 2, $Round: { $Rotate: 0.5} };
+            _CaptionTransitions["RTTL|BR"] = { $Duration: 900, x: -0.6, y: -0.6, $Zoom: 11, $Rotate: 1, $Easing: { $Left: $JssorEasing$.$EaseInCubic, $Top: $JssorEasing$.$EaseInCubic, $Zoom: $JssorEasing$.$EaseInCubic, $Opacity: $JssorEasing$.$EaseLinear, $Rotate: $JssorEasing$.$EaseInCubic }, $Opacity: 2, $Round: { $Rotate: 0.8} };
+            _CaptionTransitions["CLIP|LR"] = { $Duration: 900, $Clip: 15, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic }, $Opacity: 2 };
+            _CaptionTransitions["MCLIP|L"] = { $Duration: 900, $Clip: 1, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+            _CaptionTransitions["MCLIP|R"] = { $Duration: 900, $Clip: 2, $Move: true, $Easing: { $Clip: $JssorEasing$.$EaseInOutCubic} };
+
+            var options = {
+                $FillMode: 2,                                       //[Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+                $AutoPlay: true,                                    //[Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
+                $AutoPlayInterval: 4000,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
+                $PauseOnHover: 1,                                   //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
+
+                $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+                $SlideEasing: $JssorEasing$.$EaseOutQuint,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
+                $SlideDuration: 800,                               //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
+                $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
+                //$SlideWidth: 600,                                 //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+                //$SlideHeight: 300,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+                $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+                $DisplayPieces: 1,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
+                $ParkingPosition: 0,                                //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
+                $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
+                $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
+                $DragOrientation: 1,                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+
+                $CaptionSliderOptions: {                            //[Optional] Options which specifies how to animate caption
+                    $Class: $JssorCaptionSlider$,                   //[Required] Class to create instance to animate caption
+                    $CaptionTransitions: _CaptionTransitions,       //[Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                    $PlayInMode: 1,                                 //[Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
+                    $PlayOutMode: 3                                 //[Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
+                },
+
+                $BulletNavigatorOptions: {                          //[Optional] Options to specify and enable navigator or not
+                    $Class: $JssorBulletNavigator$,                 //[Required] Class to create navigator instance
+                    $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+                    $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+                    $SpacingX: 8,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+                    $SpacingY: 8,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+                    $Orientation: 1                                 //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+                },
+
+                $ArrowNavigatorOptions: {                           //[Optional] Options to specify and enable arrow navigator or not
+                    $Class: $JssorArrowNavigator$,                  //[Requried] Class to create arrow navigator instance
+                    $ChanceToShow: 1,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+                    $AutoCenter: 2,                                 //[Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+                    $Steps: 1                                       //[Optional] Steps to go for each navigation request, default value is 1
+                }
+            };
+
+            var jssor_slider1 = new $JssorSlider$("slider1_container", options);
+
+            //responsive code begin
+            //you can remove responsive code if you don't want the slider scales while window resizes
+            function ScaleSlider() {
+                var bodyWidth = document.body.clientWidth;
+                if (bodyWidth)
+                    jssor_slider1.$ScaleWidth(Math.min(bodyWidth, 1920));
+                else
+                    window.setTimeout(ScaleSlider, 30);
+            }
+            ScaleSlider();
+
+            $(window).bind("load", ScaleSlider);
+            $(window).bind("resize", ScaleSlider);
+            $(window).bind("orientationchange", ScaleSlider);
+            //responsive code end
+        });
+    </script>
+    <!-- Jssor Slider Begin -->
+    <!-- To move inline styles to css file/block, please specify a class name for each element. --> 
+
+    <div id="slider1_container" style="position: relative; margin: 0 auto;
+        top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
+        <!-- Loading Screen -->
+        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
+            <div style="filter: alpha(opacity=70); opacity: 0.7; position: absolute; display: block;
+                top: 0px; left: 0px; width: 100%; height: 100%;">
+            </div>
+            
+        </div>
+        <!-- Slides Container -->
+        <div u="slides" style="cursor: move; position: absolute; left: 0px; top: 0px; width: 1300px;
+            height: 500px; overflow: hidden;">
+            <div>
+                <img u="image" src="/assets/slideA.jpg" />
+                
+                
+                
+            </div>
+            <div>
+                <img u="image" src="/assets/slideB.jpg" />
+                
+            </div>
+            <div>
+                <img u="image" src="/assets/slideC.jpg" />
+                
+            </div>
+        </div>
+                
+        <!--#region Bullet Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-bullet-navigator-jquery.html -->
+        
+        <!-- bullet navigator container -->
+        <div u="navigator" class="jssorb21" style="bottom: 26px; right: 6px;">
+            <!-- bullet navigator item prototype -->
+            <div u="prototype"></div>
+        </div>
+        <!--#endregion Bullet Navigator Skin End -->
+        
+        <!--#region Arrow Navigator Skin Begin -->
+        <!-- Help: http://www.jssor.com/development/slider-with-arrow-navigator-jquery.html -->
+        
+        <!-- Arrow Left -->
+        <span u="arrowleft" class="jssora21l" style="top: 123px; left: 8px;">
+        </span>
+        <!-- Arrow Right -->
+        <span u="arrowright" class="jssora21r" style="top: 123px; right: 8px;">
+        </span>
+        <!--#endregion Arrow Navigator Skin End -->
+        <a style="display: none" href="http://www.jssor.com">Bootstrap Slider</a>
+    </div>
+
+<div class="quienes">
+	<div class="container">
+		<h1>¿Quiénes Somos?</h1>
+		<p>Chat Social es una asociación civil formada por especialistas con experiencia de trabajo en el tercer sector. Especialistas en comunicación y visibilidad.
+		<br><br>
+		Ayudamos a emprender para que se genere una contribución a la sociedad.
+		</p>
+		<div class="logo">
+			<%= image_tag "logo.png" %>
+		</div>
+	</div>
+</div>
+
+<div class="banner1">
+	<div class="container">
+		<div><p>ESTABLECEMOS ALIANZAS ENTRE EL SECTOR EMPRESARIAL Y LAS ORGANIZACIONES DE LA SOCIEDAD CIVIL PARA SUMAR ESFUERZOS QUE DERIVEN EN INVERSIÓN SOCIAL PARA SOLUCIONAR PROBLEMÁTICAS DE SU ENTORNO.</p></div>
+	</div>
+</div>
+
+<div class="miVi">
+	<div class="container">
+		<div class="mision">
+			<h2>MISIÓN</h2>
+			<p>
+            <div class="imgIcon"><%= image_tag "society.svg" %></div> <p>
+            Desarrollar, fortalecer, vincular y profesionalizar a las diferentes asociaciones civiles, fundaciones y empresas establecidas a través de consultoría, capacitación e investigación para integrarlas a la sociedad y que ésta sea más justa, fuerte y equitativa.</p></p>
+		</div>
+		<div class="vision">
+			<h2>VISIÓN</h2>
+			<p>
+            <div class="imgIcon"><%= image_tag "wrench.svg" %></div> <p>
+            Las asociaciones civiles, fundaciones y empresas tendrán las herramientas para ser profesionales, sólidas y poderosas para sustentar las causas que interesan a la sociedad de una manera efectiva y trascendente.
+			</p><br>
+            <p>
+            <div class="imgIcon"><%= image_tag "change.svg" %></div> <p>
+			Permitir que el tercer sector tenga la fuerza necesaria para lograr los cambios, incidiendo en políticas públicas para la transformación estructural de la sociedad.</p><br>
+			<p>
+            <div class="imgIcon"><%= image_tag "synergy.svg" %></div> <p>
+			El sector empresarial confiará en Asociaciones  fortalecidas, para fomentar el desarrollo de una cultura de Responsabilidad Social Empresarial que creará una sinergia que logre impactos verdaderos y trascendentes.
+            </p></p>
+		</div>
+	</div>
+</div>
+
+<div class="hacemos">
+	<div class="container">
+		<h1>¿CÓMO LO HACEMOS?</h1>
+		<div class="oscs">
+			<div class="imagen">
+				<%= image_tag "oscs.png" %>
+			</div>
+			<div class="text">
+				Acompañamiento por medio de asesorías especializadas en:
+				<br>
+				<ul>
+					<li>Sustentabilidad</li>
+					<li>Planeación Estratégica</li>
+					<li>Visibilidad y Comunicación</li>
+                    <li>Estructura Organizacional (Consejo Directivo y Equipo Operativo)</li>
+                    <li>Diagnósticos Sociales de Impacto</li>
+				</ul>
+				<br>
+				Consultorías en:
+				<br>
+				<ul>
+					<li>Elaboración de Proyectos</li>
+					<li>Medición de Espacio Social</li>
+					<li>Manejo de Voluntariado</li>
+					<li>Acreditaciones de Institucionalidad y transparencia</li>
+				</ul>
+			</div>
+		</div>
+		<div class="empresas">
+			<div class="imagen">
+				<%= image_tag "empresas.png" %>
+			</div>
+			<div class="text">
+				Se trabaja con las empresas para que vean la responsabilidad social como un factor indispensable para lograr un impacto positivo y de largo plazo en la sociedad.
+				<br><br>
+				Consultorías en:
+				<br>
+				<ul>
+					<li>Diseño de Estrategia de Responsabilidad Social Coorporativa</li>
+					<li>Evaluación de Problemáticas</li>
+					<li>Diagnóstico de Impacto Social</li>
+					<li>Plan Coorporativo de Voluntariado</li>
+					<li>Marketing con Causa</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="redesSociales">
+	<div class="container">
+		<h1>NUESTRAS REDES SOCIALES</h1>
+		<div class="facebook">
+			<div class="fb-page" data-href="https://www.facebook.com/ChatSocialAc" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ChatSocialAc"><a href="https://www.facebook.com/ChatSocialAc">Chat Social, A.C.</a></blockquote></div></div>
+		</div>
+
+		<div class="twitter">
+			<a class="twitter-timeline" 
+			href="https://twitter.com/CHATSOCIAL_AC" 
+			data-widget-id="608695645487022083"
+			width = "300"
+			height = "300">Tweets por @CHATSOCIAL_AC.</a>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>
+
+<style>
+    /* jssor slider arrow navigator skin 21 css */
+    /*
+    .jssora21l                  (normal)
+    .jssora21r                  (normal)
+    .jssora21l:hover            (normal mouseover)
+    .jssora21r:hover            (normal mouseover)
+    .jssora21l.jssora21ldn      (mousedown)
+    .jssora21r.jssora21rdn      (mousedown)
+    */
+    .jssora21l, .jssora21r {
+        display: block;
+        position: absolute;
+        /* size of arrow element */
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        background: url(/assets/a21.png) center center no-repeat;
+        overflow: hidden;
+    }
+    .jssora21l { background-position: -3px -33px; }
+    .jssora21r { background-position: -63px -33px; }
+    .jssora21l:hover { background-position: -123px -33px; }
+    .jssora21r:hover { background-position: -183px -33px; }
+    .jssora21l.jssora21ldn { background-position: -243px -33px; }
+    .jssora21r.jssora21rdn { background-position: -303px -33px; }
+</style>
+
+<style>
+            /* jssor slider bullet navigator skin 21 css */
+            /*
+            .jssorb21 div           (normal)
+            .jssorb21 div:hover     (normal mouseover)
+            .jssorb21 .av           (active)
+            .jssorb21 .av:hover     (active mouseover)
+            .jssorb21 .dn           (mousedown)
+            */
+            .jssorb21 {
+                position: absolute;
+            }
+            .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+                position: absolute;
+                /* size of bullet elment */
+                width: 19px;
+                height: 19px;
+                text-align: center;
+                line-height: 19px;
+                color: white;
+                font-size: 12px;
+                background: url(/assets/b21.png) no-repeat;
+                overflow: hidden;
+                cursor: pointer;
+            }
+            .jssorb21 div { background-position: -5px -5px; }
+            .jssorb21 div:hover, .jssorb21 .av:hover { background-position: -35px -5px; }
+            .jssorb21 .av { background-position: -65px -5px; }
+            .jssorb21 .dn, .jssorb21 .dn:hover { background-position: -95px -5px; }
+        </style>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.4&appId=181369881949810";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+
+</script>

@@ -1,0 +1,42 @@
+<div class="newsForm">
+<div class="newsContainer">
+<%= form_for(@post) do |f| %>
+	
+	<% if @post.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@post.errors.count, "error") %>
+							No hemos podido guardar por: </h2>
+
+				<ul>
+					<% @post.errors.full_messages.each do |msg| %>
+						<li><%= msg %></li>
+					<% end %>
+				</ul>
+		</div>
+	<% end %>
+	<div>
+		<%= f.label :name, "Nombre del Post" %><br>
+		<%= f.text_field :name, :placeholder => "Nombre del Post" %>
+	</div>
+	<div>
+		<%= f.label :image, "Imagen" %><br>
+		<%= f.text_field :image, :placeholder => "Imagen" %>
+	</div>
+	<div>
+		<%= f.label :news, "Texto" %><br>
+		<%= f.text_area :news, :placeholder => "Texto" %>
+	</div>
+	<div>
+		<%= f.label :source, "Sitio Fuente" %><br>
+		<%= f.text_field :source, :placeholder => "Sitio Fuente" %>
+	</div>
+	<div>
+		<%= f.label :shortlink, "Link que aparece en el Sitio" %><br>
+		<%= f.text_field :shortlink, :placeholder => "Link que aparece en el Sitio" %>
+	</div>
+
+	<div class="button"><%= f.submit(@post.new_record? ? "Crear Post" : "Modificar Post") %></div>
+<% end %>
+
+</div>
+</div>

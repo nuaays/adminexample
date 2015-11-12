@@ -1,0 +1,39 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="projectEdit">
+	<div class="container">
+		<h2> Editar Proyecto </h2>
+		<%= render 'form' %>
+	</div>
+
+	<div class="goBack">
+		<div class="icon"><%= image_tag "backIcon.png" %></div>
+		<div class="text"><%= link_to "REGRESAR", project_path(@project) %></div>
+	</div>
+</div>
+
+<div class="footer fixed">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>

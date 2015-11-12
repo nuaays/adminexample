@@ -1,0 +1,38 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="login">
+	<div class="container">
+		<h1> PANEL DE ADMINISTRADOR </h1>
+
+		<%= form_for :login, method: "POST" do |f| %>
+			<%= f.text_field :email, :placeholder => "Email" %> </br>
+
+			<%= f.password_field :password, :placeholder => "Password" %></br>
+
+			<%= f.submit "INGRESAR" %>
+		<% end %>
+	</div>
+</div>
+
+<div class="footer fixed">
+	<div class="informacion">
+		<p>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 812 3456
+		</p>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href=""><%= image_tag "instagram.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>

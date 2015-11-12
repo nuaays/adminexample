@@ -1,0 +1,87 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="projectsHeader">
+	<div class="container">
+		<h1>NUESTROS PROYECTOS</h1>
+	</div>
+</div>
+
+<div class="projectsIndex">
+	<div class="container">
+		<div class="desc">
+			<p>
+				Estos son los proyectos con los que estamos trabajando para contribuir a la sociedad actualmente.
+			</p>
+			<h3>¿Qué esperas para ser parte del cambio?</h3>
+			<% if current_user and current_user.projects?%>
+				<div class="button"><%= link_to 'Nuevo Proyecto', new_project_path %></div>
+			<% end %>
+
+			<div class="projects">
+				<% @projects.each do |project| %>
+					<div class="project">
+						<p><%= link_to project.name, project %></p>
+						<p class="shortDesc"><%= project.issue %></p>
+						<div class="seeMore"><%= link_to "VER MÁS", project %></div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="createProject">
+			<div class="form">
+			<h2>Crea tu Proyecto</h2>
+			<form id="createForm" action="//formspree.io/contacto@chatsocial.mx" method="POST" >
+                <input type="text" name="Nombre" placeholder="Nombre" required>
+                <input type="text" name="Email" placeholder="Email" required>
+                <div class="stepGrp"> 
+	                <div class="steps">
+	                	<h1>1</h1>
+	                	<p>¿Qué problemas sociales te gustaría resolver?</p>
+	                	<textarea name="Problema" rows="4" placeholder="Escribe aquí" required></textarea>
+	                </div>  
+	                <div class="steps">
+	                	<h1>2</h1>
+	                	<p>¿En qué sector o lugar has visto estos problemas?</p>
+	                	<textarea name="Sector" rows="4" placeholder="Escribe aquí" required></textarea>
+	                </div>  
+	                <div class="steps">
+	                	<h1>3</h1>
+	                	<p>¿Qué acciones podrías hacer tú?</p>
+	                	<textarea name="Acciones" rows="4" placeholder="Escribe aquí" required></textarea>
+	                </div>   
+                </div>
+
+            	<button type="submit"><span class="singup-text">ENVIAR</span></button>
+            </form>
+		</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>
+

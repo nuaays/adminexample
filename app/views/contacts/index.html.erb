@@ -1,0 +1,66 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="contactHeader">
+	<div class="container">
+		<h1>CONTACTO</h1>
+	</div>
+</div>
+
+<div class="contactContent">
+	<div class="container">
+		<div class="formInfo">
+			<div class="formHeader">
+				<h1><%= image_tag "iconBlue.png" %>Déjanos un Mensaje</h1>
+			</div>
+			<p>
+				Si deseas saber más sobre nuestros servicios, envía un mail al correo <b>contacto@chatsocial.mx</b>, o llena la siguiente forma y nosotros nos ponemos en contacto.
+			</p>
+			<div class="form">
+				<form id="contactform" action="//formspree.io/contacto@chatsocial.mx" method="POST" >
+                <input type="text" name="Name" placeholder="   Nombre / Empresa">
+                <input type="text" name="Email" placeholder="   Correo Electrónico"> 
+                <input type="text" name="Teléfono" placeholder="   Teléfono">   
+                <textarea name="message" rows="4" placeholder="   Message" ></textarea>  
+            	<button type="submit" class="button"><span class="singup-text">ENVIAR</span></button>
+            </form>
+			</div>
+		</div>
+		<div class="contactInfo">
+			<div class="contactLogo">
+				<%= image_tag "logo.png" %>
+			</div>
+			<div class="contactAddress">
+				<p>Luis de Molina #163, Int. 11
+					<br><br>
+					San Luis Potosí, SLP. México.
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="footer">
+	<div class="informacion">
+        <a href="https://goo.gl/maps/wSPBR">
+		<p>
+        Luis de Molina 163, Int 11.<br>
+		San Luis Potosí, SLP. México
+		<br><br>
+		Tel: +52 (444) 211 7794
+		</p>
+        </a>
+	</div>
+	<div class="rSociales">
+		<div class="fb">
+			<a href="https://www.facebook.com/ChatSocialAc"><%= image_tag "facebook.png" %></a>
+		</div>
+		<div class="tw">
+			<a href="https://twitter.com/CHATSOCIAL_AC"><%= image_tag "twitter.png" %></a>
+		</div>
+		<div class="inst">
+			<a href="https://plus.google.com/u/1/113826014774182886131/about"><%= image_tag "googleplus.png" %></a>
+		</div>
+	</div>
+	<div class="nuva">
+		<div><a href="http://www.nuva.rocks"><%= image_tag "nuva2015.svg" %></a></div>
+	</div>
+</div>

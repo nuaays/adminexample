@@ -1,0 +1,17 @@
+<%= javascript_include_tag 'jquery.slicknav', 'data-turbolinks-track' => true %>
+<div class="showUser">
+	<div class="container">
+	<h1><%= @user.name %></h1>
+		<p><%= @user.email %></p>
+
+		<div><%= link_to "Editar Usuario", edit_admin_user_path(@user)%></div>
+		<div><%= link_to "Eliminar Usuario", admin_user_path(@user), method: :delete,
+		  data: { confirm: "¿Seguro de que quieres eliminar a este usuario?"} %></div>
+	</div>
+	<div class="goBack">
+		<div class="icon"><%= image_tag "backIcon.png" %></div>
+		<div class="text"><%= link_to "REGRESAR", admin_users_path %></div>
+	</div>
+ </div>
+
+ 

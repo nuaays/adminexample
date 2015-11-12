@@ -1,0 +1,14 @@
+<div class="userList">
+
+	<div class="container">
+	<h1> Usuarios Registrados </h1>
+	<h3> Clic sobre el usuario para editar </h3>
+	<div id='users'>
+		<% @users.each do | user | %>
+			<div><%= link_to user.name, [:admin, user] %></div>
+		<% end %>
+	</div>
+	<div class="button"><%= link_to "Nuevo Usuario", new_admin_user_path %></div>
+	</div>
+</div>
+
